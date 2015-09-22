@@ -7,6 +7,7 @@ var1:	    .word 3
 strPrompt:  .asciiz "please enter a number " 
 
 .text
+main:
 
 GetInput:
 	#display prompt 
@@ -20,3 +21,4 @@ GetInput:
 	sw $v0,	0($t0)			# store $v0 into ram
 
 	addi $s0,$v0,0	                # load $v0 to $s0
+	jr $ra
