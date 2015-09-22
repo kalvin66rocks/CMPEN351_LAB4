@@ -1,14 +1,16 @@
 # line break I got from stack overflow the rest is my code 
 .data
-
-var0:	    .word 0
-var1:	    .word 3
+StackTop:   .word 0:99
+StackBot: 
+var0:	    .word 
+var1:	    .word 
 
 strPrompt:  .asciiz "please enter a number " 
 
 .text
-
+la $sp,StackBot 
 GetInput:
+
 	#display prompt 
 	li $v0,4
 	la $a0, strPrompt	        # load address of prompt
@@ -19,4 +21,4 @@ GetInput:
 	la $t0,var0			# load address value to $t0
 	sw $v0,	0($t0)			# store $v0 into ram
 
-	addi $s0,$v0,0	                # load $v0 to $s0
+	addi $a1,$v0,0	                # load $v0 to $s0
